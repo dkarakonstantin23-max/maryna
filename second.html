@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Співпраця та Анкета — Марина Шолох</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --bg: #e5d8cf; --gold: #a68b6d; --dark: #3a332e; --white: #fff; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--dark); padding: 40px 0; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+        
+        .fade-in { opacity: 0; transform: translateY(20px); transition: 0.6s; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        
+        .block { background: var(--white); border-radius: 20px; padding: 30px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1, h2 { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); }
+        h1 { text-align: center; font-size: 3rem; margin-bottom: 30px; }
+        h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        
+        li { padding: 10px 0; border-bottom: 1px solid rgba(166,139,109,0.15); list-style: none; display: flex; align-items: center; }
+        li::before { content: "◆"; color: var(--gold); margin-right: 15px; font-size: 0.8rem; }
+        
+        .res { background: rgba(166,139,109,0.08); border-left: 4px solid var(--gold); padding: 20px; margin-top: 15px; border-radius: 0 15px 15px 0; }
+        .variants { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .v-item { background: var(--gold); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+
+        .form-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; color: var(--gold); letter-spacing: 1px; }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid rgba(166, 139, 109, 0.2); 
+            border-radius: 10px; 
+            font-family: 'Montserrat', sans-serif; 
+            background: #fdfaf8;
+            transition: 0.3s;
+        }
+        input:focus { border-color: var(--gold); outline: none; background: #fff; }
+
+        .btn-submit { 
+            width: 100%;
+            background: linear-gradient(135deg, #d4bdad, #a68b6d); 
+            color: #fff; 
+            padding: 18px; 
+            border: none;
+            border-radius: 50px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+        .btn-submit:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(166,139,109,0.2); }
+
+        .social-footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(166,139,109,0.2); }
+        .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 15px; }
+        .social-links a { color: var(--gold); font-size: 1.8rem; transition: 0.3s; text-decoration: none; }
+        .social-links a:hover { color: var(--dark); transform: translateY(-5px); }
+        
+        .back { display: block; text-align: center; margin-top: 20px; color: var(--dark); text-decoration: none; font-size: 0.9rem; opacity: 0.6; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="fade-in">Співпраця</h1>
+
+        <div class="block fade-in">
+            <h2>Для кого?</h2>
+            <ul>
+                <li>Мам у декреті</li>
+                <li>Власників бізнесу</li>
+                <li>Б'юті-спеціалістів</li>
+                <li>Людей з найму</li>
+                <li>Студентів</li>
+            </ul>
+        </div>
+
+        <div class="block fade-in">
+            <h2>Партнерство</h2>
+            <div class="res">
+                <strong>Очікуваний результат:</strong>
+                <p>Стабільний дохід, потужна команда та розвиток особистого бренду.</p>
+            </div>
+        </div>
+
+        <div class="block fade-in">
+            <h2>Варіанти</h2>
+            <div class="variants">
+                <span class="v-item">Клієнт</span>
+                <span class="v-item">VIP-клієнт</span>
+                <span class="v-item">Партнер</span>
+            </div>
+        </div>
+
+        <div class="block fade-in">
+            <h2 style="text-align: center; font-size: 1.8rem;">Анкета партнера</h2>
+            <form action="https://formspree.io/f/meelggyl" method="POST">
+                <div class="form-group">
+                    <label>1. Прізвище та ім’я</label>
+                    <input type="text" name="Прізвище та ім’я" required>
+                </div>
+                <div class="form-group">
+                    <label>2. Номер телефону</label>
+                    <input type="tel" name="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <label>3. Електронна адреса</label>
+                    <input type="email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label>4. Місце роботи / Посада</label>
+                    <input type="text" name="Місце роботи">
+                </div>
+                <div class="form-group">
+                    <label>5. Поточний дохід (в місяць)</label>
+                    <input type="text" name="Поточний дохід">
+                </div>
+                <div class="form-group">
+                    <label>6. Бажаний дохід (в місяць)</label>
+                    <input type="text" name="Бажаний дохід">
+                </div>
+                <div class="form-group">
+                    <label>7. Годин на день для бізнесу</label>
+                    <input type="text" name="Годин на день">
+                </div>
+                <button type="submit" class="btn-submit">Надіслати анкету</button>
+            </form>
+        </div>
+
+        <div class="social-footer fade-in">
+            <p style="font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Ми в соцмережах</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1APHqd1DRE/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/maryna_sholokh?igsh=eWNraDQ5bHExamZu&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="index.html" class="back">← Повернутися на головну</a>
+        </div>
+    </div>
+
+    <script>
+        const obs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')));
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

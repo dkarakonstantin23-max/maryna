@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Марина Шолох | LR Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #e5d8cf; --gold: #a68b6d; --dark: #3a332e; --white: rgba(255,255,255,0.95); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 60px 0; min-height: 90vh; }
+        .hero-text { flex: 1; }
+        .hero-img { flex: 1; text-align: right; }
+        .hero-img img { width: 100%; max-width: 420px; border-radius: 30px; box-shadow: 20px 20px 60px rgba(0,0,0,0.1); }
+        h1 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 4rem; color: var(--gold); }
+        h2 { font-size: 2.2rem; text-transform: uppercase; margin: 10px 0; }
+        .btn { display: inline-block; background: linear-gradient(135deg, #d4bdad, #a68b6d); color: #fff; padding: 16px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; transition: 0.3s; cursor: pointer; border: none; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(166,139,109,0.3); }
+        .about { background: var(--white); padding: 80px 0; text-align: center; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 60px 0 30px; }
+        .card { background: rgba(255,255,255,0.6); padding: 40px; border-radius: 20px; text-align: center; border: 1px solid rgba(166,139,109,0.2); transition: 0.3s; }
+        .center-btn { text-align: center; padding-bottom: 80px; }
+        @media (max-width: 768px) { .hero { flex-direction: column; text-align: center; } .hero-img { order: -1; margin-bottom: 30px; } h1 { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+    <section class="container hero fade-in">
+        <div class="hero-text">
+            <h1>Побудуй</h1>
+            <h2>МІЖНАРОДНИЙ БІЗНЕС</h2>
+            <p style="color: var(--gold); font-weight: 600;">у сфері краси та здоров’я</p>
+            <p>Заробляй, подорожуй та отримуй свободу з моєю підтримкою!</p><br>
+            <a href="second.html" class="btn">Дізнатись більше</a>
+        </div>
+        <div class="hero-img"><img src="me.jpg" alt="Марина Шолох"></div>
+    </section>
+
+    <section class="about fade-in">
+        <div class="container">
+            <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.8rem; color: var(--gold);">Марина Шолох</p>
+            <h2 style="font-size: 1.5rem; letter-spacing: 2px;">Лідер компанії LR</h2>
+            <p style="max-width: 800px; margin: 0 auto;">Будую мега бізнес у 30 країнах світу та допоможу вам стати частиною нашої успішної команди.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="features">
+            <div class="card fade-in"><h3>Міжнародний Бізнес</h3><p>Розвивайте власну справу у понад 30 країнах світу.</p></div>
+            <div class="card fade-in"><h3>Високі Заробітки</h3><p>Дохідний бізнес з німецькими стандартами та можливостями.</p></div>
+            <div class="card fade-in"><h3>Подорожі та Авто</h3><p>Унікальна автопрограма та подорожі за рахунок компанії.</p></div>
+        </div>
+        <div class="center-btn fade-in">
+            <a href="second.html" class="btn">Далі →</a>
+        </div>
+    </div>
+
+    <script>
+        const obs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')));
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
