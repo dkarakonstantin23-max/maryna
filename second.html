@@ -29,6 +29,12 @@
 
         .form-group { margin-bottom: 15px; text-align: left; }
         label { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; color: var(--gold); letter-spacing: 1px; }
+        
+        /* Покращене поле введення */
+        .input-wrapper { position: relative; }
+        .input-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--gold); opacity: 0.6; }
+        .input-wrapper input { padding-left: 40px !important; }
+
         input { 
             width: 100%; 
             padding: 12px; 
@@ -38,7 +44,7 @@
             background: #fdfaf8;
             transition: 0.3s;
         }
-        input:focus { border-color: var(--gold); outline: none; background: #fff; }
+        input:focus { border-color: var(--gold); outline: none; background: #fff; box-shadow: 0 0 10px rgba(166,139,109,0.1); }
 
         .btn-submit { 
             width: 100%;
@@ -101,30 +107,39 @@
             <form action="https://formspree.io/f/meelggyl" method="POST">
                 <div class="form-group">
                     <label>1. Прізвище та ім’я</label>
-                    <input type="text" name="Прізвище та ім’я" required>
+                    <input type="text" name="Прізвище та ім’я" required placeholder="Марина Шолох">
                 </div>
                 <div class="form-group">
                     <label>2. Номер телефону</label>
-                    <input type="tel" name="Телефон" required>
+                    <input type="tel" name="Телефон" required placeholder="+380">
+                </div>
+                
+                <div class="form-group">
+                    <label>3. Ваш Instagram</label>
+                    <div class="input-wrapper">
+                        <i class="fab fa-instagram"></i>
+                        <input type="text" name="Instagram" placeholder="@нікнейм">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>4. Електронна адреса</label>
+                    <input type="email" name="Email" required placeholder="example@mail.com">
                 </div>
                 <div class="form-group">
-                    <label>3. Електронна адреса</label>
-                    <input type="email" name="Email" required>
-                </div>
-                <div class="form-group">
-                    <label>4. Місце роботи / Посада</label>
+                    <label>5. Місце роботи / Посада</label>
                     <input type="text" name="Місце роботи">
                 </div>
                 <div class="form-group">
-                    <label>5. Поточний дохід (в місяць)</label>
+                    <label>6. Поточний дохід (в місяць)</label>
                     <input type="text" name="Поточний дохід">
                 </div>
                 <div class="form-group">
-                    <label>6. Бажаний дохід (в місяць)</label>
+                    <label>7. Бажаний дохід (в місяць)</label>
                     <input type="text" name="Бажаний дохід">
                 </div>
                 <div class="form-group">
-                    <label>7. Годин на день для бізнесу</label>
+                    <label>8. Годин на день для бізнесу</label>
                     <input type="text" name="Годин на день">
                 </div>
                 <button type="submit" class="btn-submit">Надіслати анкету</button>
@@ -135,15 +150,36 @@
             <p style="font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Ми в соцмережах</p>
             <div class="social-links">
                 <a href="https://www.facebook.com/share/1APHqd1DRE/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/maryna_sholokh?igsh=eWNraDQ5bHExamZu&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/maryna_sholokh?igsh=eWNraDQ5bHExamZu&utm_source=qr" id="ig-link"><i class="fab fa-instagram"></i></a>
             </div>
             <a href="index.html" class="back">← Повернутися на головну</a>
         </div>
     </div>
 
     <script>
+        // Анімація появи
         const obs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')));
         document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+        // Скрипт для прямого відкриття Instagram додатку
+        var igLink = document.getElementById('ig-link');
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            igLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                var username = "maryna_sholokh";
+                if (/Android/i.test(navigator.userAgent)) {
+                    window.location.href = 'intent://www.instagram.com/_u/' + username + '#Intent;scheme=https;package=com.instagram.android;end';
+                } else {
+                    window.location.href = 'instagram://user?username=' + username;
+                }
+                // Резервний варіант, якщо додаток не відкрився
+                setTimeout(function() {
+                    window.location.href = 'https://www.instagram.com/' + username;
+                }, 1000);
+            });
+        }
     </script>
 </body>
 </html>
