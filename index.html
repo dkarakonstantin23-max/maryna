@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Марина Шолох | LR Business</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <style>
         :root { 
             --bg: #e5d8cf; 
             --gold: #a68b6d; 
-            --dark: #3a332e; 
+            --dark: #000000; 
+            --text-main: #3a332e;
             --white: rgba(255,255,255,0.95); 
         }
 
@@ -18,7 +19,7 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             background: var(--bg); 
-            color: var(--dark); 
+            color: var(--text-main); 
             line-height: 1.6; 
             overflow-x: hidden; 
         }
@@ -40,35 +41,111 @@
             transform: translateY(0); 
         }
 
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         .hero { 
             display: flex; 
             align-items: center; 
             justify-content: space-between; 
             padding: 80px 0; 
-            min-height: 80vh; 
+            min-height: 85vh;
+            gap: 40px;
         }
 
-        .hero-text { flex: 1; }
-        .hero-img { flex: 1; text-align: right; }
+        .hero-text { 
+            flex: 1.2; 
+        }
+
+        /* ===== ІМ'Я ЗЛІВА ===== */
+        .hero-name-block {
+            text-align: left;
+            margin-bottom: 40px;
+            padding-left: 5px;
+            border-left: 4px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 3.2rem;
+            color: var(--dark);
+            line-height: 1;
+            display: block;
+        }
+
+        .hero-status {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* ===== ГОЛОВНИЙ ЗАКЛИК ПО ЦЕНТРУ ===== */
+        .hero-cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .hero-cta .cta-line-1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 5rem;
+            color: var(--gold);
+            line-height: 1;
+            display: block;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 0px rgba(166,139,109,0.15);
+        }
+
+        .hero-cta .cta-line-2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.4rem;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .hero-cta .cta-line-3 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .hero-cta .cta-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 35px;
+        }
+
+        /* ===== ДЕКОРАТИВНА ЛІНІЯ ===== */
+        .cta-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 20px auto;
+        }
+
+        .hero-img { flex: 0.8; text-align: right; }
         .hero-img img { 
             width: 100%; 
             max-width: 420px; 
             border-radius: 30px; 
             box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
-        }
-
-        h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-style: italic; 
-            font-size: 4rem; 
-            color: var(--gold); 
-        }
-
-        h2 { 
-            font-size: 2.2rem; 
-            text-transform: uppercase; 
-            margin: 10px 0; 
         }
 
         .btn { 
@@ -83,6 +160,7 @@
             transition: 0.3s; 
             cursor: pointer; 
             border: none;
+            letter-spacing: 1px;
         }
 
         .btn:hover { 
@@ -90,7 +168,7 @@
             box-shadow: 0 10px 20px rgba(166,139,109,0.3); 
         }
 
-        /* Великі акцентні блоки */
+        /* ===== КАРТКИ ===== */
         .main-card {
             background: var(--white);
             padding: 50px 40px;
@@ -109,7 +187,6 @@
             font-weight: 400;
         }
 
-        /* Сітка з трьох блоків (як на скріншоті) */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -122,10 +199,10 @@
             padding: 40px 30px;
             border-radius: 25px;
             text-align: center;
+            min-height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            min-height: 250px;
         }
 
         .small-card h4 {
@@ -135,7 +212,6 @@
             color: var(--gold);
             text-transform: uppercase;
             margin-bottom: 20px;
-            line-height: 1.2;
         }
 
         .decor-dots {
@@ -151,11 +227,63 @@
             padding: 40px 0 100px;
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; }
-            .hero-img { order: -1; margin-bottom: 40px; }
-            h1 { font-size: 3rem; }
-            .main-card h3 { font-size: 2.2rem; }
+            .hero { 
+                flex-direction: column; 
+                text-align: center; 
+                padding: 50px 0;
+            }
+            .hero-img { 
+                order: -1; 
+                margin-bottom: 30px; 
+            }
+
+            .hero-name-block {
+                text-align: center;
+                border-left: none;
+                padding-left: 0;
+                border-bottom: 3px solid var(--gold);
+                padding-bottom: 15px;
+                margin-bottom: 30px;
+            }
+
+            .hero-name { 
+                font-size: 2.5rem; 
+            }
+
+            .hero-status { 
+                font-size: 0.75rem; 
+                letter-spacing: 2px; 
+            }
+
+            .hero-cta .cta-line-1 { 
+                font-size: 3.5rem; 
+            }
+
+            .hero-cta .cta-line-2 { 
+                font-size: 1.6rem; 
+                letter-spacing: 3px; 
+            }
+
+            .hero-cta .cta-line-3 { 
+                font-size: 1.1rem; 
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-cta .cta-line-1 { 
+                font-size: 2.8rem; 
+            }
+
+            .hero-cta .cta-line-2 { 
+                font-size: 1.3rem; 
+                letter-spacing: 2px; 
+            }
+
+            .hero-name { 
+                font-size: 2rem; 
+            }
         }
     </style>
 </head>
@@ -163,13 +291,27 @@
 
     <section class="container hero fade-in">
         <div class="hero-text">
-            <h1>Побудуй</h1>
-            <h2>МІЖНАРОДНИЙ БІЗНЕС</h2>
-            <p style="color: var(--gold); font-weight: 600;">у сфері краси та здоров’я</p>
-            <p>Заробляй, подорожуй та отримуй свободу з моєю підтримкою!</p><br>
-            <a href="#start" class="btn">Дізнатись більше</a>
+
+            <!-- ІМ'Я ЗЛІВА -->
+            <div class="hero-name-block">
+                <span class="hero-name">Марина Шолох</span>
+                <span class="hero-status">Лідер німецької компанії LR</span>
+            </div>
+
+            <!-- ГОЛОВНИЙ ЗАКЛИК ПО ЦЕНТРУ -->
+            <div class="hero-cta">
+                <span class="cta-line-1">Побудуй</span>
+                <span class="cta-line-2">МІЖНАРОДНИЙ БІЗНЕС</span>
+                <span class="cta-line-3">у сфері краси та здоров'я</span>
+                <div class="cta-divider"></div>
+                <p class="cta-desc">Заробляй, подорожуй та отримуй свободу з моєю підтримкою!</p>
+                <a href="#start" class="btn">Дізнатись більше</a>
+            </div>
+
         </div>
-        <div class="hero-img"><img src="me.jpg" alt="Марина Шолох"></div>
+        <div class="hero-img">
+            <img src="me.jpg" alt="Марина Шолох">
+        </div>
     </section>
 
     <div class="container" id="start">
