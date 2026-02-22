@@ -41,6 +41,47 @@
             transform: translateY(0); 
         }
 
+        /* ===== LANG SWITCHER ===== */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            border: 1px solid rgba(166,139,109,0.18);
+            gap: 2px;
+        }
+
+        .lang-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 7px 16px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            color: var(--gold);
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #d4bdad, #a68b6d);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(166,139,109,0.3);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(166,139,109,0.1);
+        }
+
         /* ===== HERO SECTION ===== */
         .hero { 
             display: flex; 
@@ -55,11 +96,9 @@
             flex: 1.2; 
         }
 
-        /* ===== ІМ'Я ЗЛІВА ===== */
         .hero-name-block {
             text-align: left;
             margin-bottom: 40px;
-            padding-left: 5px;
             border-left: 4px solid var(--gold);
             padding-left: 20px;
         }
@@ -85,7 +124,6 @@
             display: block;
         }
 
-        /* ===== ГОЛОВНИЙ ЗАКЛИК ПО ЦЕНТРУ ===== */
         .hero-cta {
             text-align: center;
             margin: 30px 0;
@@ -132,7 +170,6 @@
             margin-bottom: 35px;
         }
 
-        /* ===== ДЕКОРАТИВНА ЛІНІЯ ===== */
         .cta-divider {
             width: 80px;
             height: 2px;
@@ -168,7 +205,6 @@
             box-shadow: 0 10px 20px rgba(166,139,109,0.3); 
         }
 
-        /* ===== КАРТКИ ===== */
         .main-card {
             background: var(--white);
             padding: 50px 40px;
@@ -248,64 +284,45 @@
                 margin-bottom: 30px;
             }
 
-            .hero-name { 
-                font-size: 2.5rem; 
-            }
+            .hero-name { font-size: 2.5rem; }
+            .hero-status { font-size: 0.75rem; letter-spacing: 2px; }
+            .hero-cta .cta-line-1 { font-size: 3.5rem; }
+            .hero-cta .cta-line-2 { font-size: 1.6rem; letter-spacing: 3px; }
+            .hero-cta .cta-line-3 { font-size: 1.1rem; }
 
-            .hero-status { 
-                font-size: 0.75rem; 
-                letter-spacing: 2px; 
-            }
-
-            .hero-cta .cta-line-1 { 
-                font-size: 3.5rem; 
-            }
-
-            .hero-cta .cta-line-2 { 
-                font-size: 1.6rem; 
-                letter-spacing: 3px; 
-            }
-
-            .hero-cta .cta-line-3 { 
-                font-size: 1.1rem; 
-            }
+            .lang-switcher { top: 12px; right: 12px; }
         }
 
         @media (max-width: 400px) {
-            .hero-cta .cta-line-1 { 
-                font-size: 2.8rem; 
-            }
-
-            .hero-cta .cta-line-2 { 
-                font-size: 1.3rem; 
-                letter-spacing: 2px; 
-            }
-
-            .hero-name { 
-                font-size: 2rem; 
-            }
+            .hero-cta .cta-line-1 { font-size: 2.8rem; }
+            .hero-cta .cta-line-2 { font-size: 1.3rem; letter-spacing: 2px; }
+            .hero-name { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- LANG SWITCHER -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('uk')">УКР</button>
+        <button class="lang-btn" onclick="setLang('en')">ENG</button>
+    </div>
+
     <section class="container hero fade-in">
         <div class="hero-text">
 
-            <!-- ІМ'Я ЗЛІВА -->
             <div class="hero-name-block">
                 <span class="hero-name">Марина Шолох</span>
-                <span class="hero-status">Лідер німецької компанії LR</span>
+                <span class="hero-status" data-uk="Лідер німецької компанії LR" data-en="Leader of the German company LR">Лідер німецької компанії LR</span>
             </div>
 
-            <!-- ГОЛОВНИЙ ЗАКЛИК ПО ЦЕНТРУ -->
             <div class="hero-cta">
-                <span class="cta-line-1">Побудуй</span>
-                <span class="cta-line-2">МІЖНАРОДНИЙ БІЗНЕС</span>
-                <span class="cta-line-3">у сфері краси та здоров'я</span>
+                <span class="cta-line-1" data-uk="Побудуй" data-en="Build">Побудуй</span>
+                <span class="cta-line-2" data-uk="МІЖНАРОДНИЙ БІЗНЕС" data-en="INTERNATIONAL BUSINESS">МІЖНАРОДНИЙ БІЗНЕС</span>
+                <span class="cta-line-3" data-uk="у сфері краси та здоров'я" data-en="in beauty & wellness">у сфері краси та здоров'я</span>
                 <div class="cta-divider"></div>
-                <p class="cta-desc">Заробляй, подорожуй та отримуй свободу з моєю підтримкою!</p>
-                <a href="#start" class="btn">Дізнатись більше</a>
+                <p class="cta-desc" data-uk="Заробляй, подорожуй та отримуй свободу з моєю підтримкою!" data-en="Earn, travel, and gain freedom — with my full support!">Заробляй, подорожуй та отримуй свободу з моєю підтримкою!</p>
+                <a href="#start" class="btn" data-uk="Дізнатись більше" data-en="Learn more">Дізнатись більше</a>
             </div>
 
         </div>
@@ -318,49 +335,73 @@
         
         <div class="decor-dots fade-in">◆ ◆ ◆</div>
         <div class="main-card fade-in">
-            <h3>Партнерство</h3>
-            <p>Покрокове навчання, підтримка, стратегія росту — все, щоб ви досягли максимуму у своєму бізнесі.</p>
+            <h3 data-uk="Партнерство" data-en="Partnership">Партнерство</h3>
+            <p data-uk="Покрокове навчання, підтримка, стратегія росту — все, щоб ви досягли максимуму у своєму бізнесі." data-en="Step-by-step training, support, and growth strategy — everything you need to reach your full potential in business.">Покрокове навчання, підтримка, стратегія росту — все, щоб ви досягли максимуму у своєму бізнесі.</p>
         </div>
 
         <div class="decor-dots fade-in">◆ ◆ ◆</div>
         <div class="main-card fade-in">
-            <h3>Наставництво</h3>
-            <p>Я веду до результату кожного, надихаю та підтримую команду на кожному кроці шляху до успіху.</p>
+            <h3 data-uk="Наставництво" data-en="Mentorship">Наставництво</h3>
+            <p data-uk="Я веду до результату кожного, надихаю та підтримую команду на кожному кроці шляху до успіху." data-en="I guide every person to results, inspire and support my team at every step of the journey to success.">Я веду до результату кожного, надихаю та підтримую команду на кожному кроці шляху до успіху.</p>
         </div>
 
         <div class="decor-dots fade-in">◆ ◆ ◆</div>
         <div class="main-card fade-in">
-            <h3>Експертність</h3>
-            <p>Консультування людей на професійному рівні. Підбір продуктів під конкретні потреби, реальні результати та високий рівень задоволеності клієнтів.</p>
+            <h3 data-uk="Експертність" data-en="Expertise">Експертність</h3>
+            <p data-uk="Консультування людей на професійному рівні. Підбір продуктів під конкретні потреби, реальні результати та високий рівень задоволеності клієнтів." data-en="Professional-level consulting. Product selection tailored to specific needs, real results, and high client satisfaction.">Консультування людей на професійному рівні. Підбір продуктів під конкретні потреби, реальні результати та високий рівень задоволеності клієнтів.</p>
         </div>
 
         <div class="features-grid">
             <div class="small-card fade-in">
-                <h4>Міжнародний бізнес</h4>
-                <p>Розвивайте власну справу у понад 30 країнах світу.</p>
+                <h4 data-uk="Міжнародний бізнес" data-en="International Business">Міжнародний бізнес</h4>
+                <p data-uk="Розвивайте власну справу у понад 30 країнах світу." data-en="Grow your own business in over 30 countries worldwide.">Розвивайте власну справу у понад 30 країнах світу.</p>
             </div>
             <div class="small-card fade-in">
-                <h4>Високі заробітки</h4>
-                <p>Дохідний бізнес з німецькими стандартами та можливостями.</p>
+                <h4 data-uk="Високі заробітки" data-en="High Earnings">Високі заробітки</h4>
+                <p data-uk="Дохідний бізнес з німецькими стандартами та можливостями." data-en="A profitable business with German standards and opportunities.">Дохідний бізнес з німецькими стандартами та можливостями.</p>
             </div>
             <div class="small-card fade-in">
-                <h4>Подорожі та авто</h4>
-                <p>Унікальна автопрограма та подорожі за рахунок компанії.</p>
+                <h4 data-uk="Подорожі та авто" data-en="Travel & Car">Подорожі та авто</h4>
+                <p data-uk="Унікальна автопрограма та подорожі за рахунок компанії." data-en="A unique car program and company-sponsored travel.">Унікальна автопрограма та подорожі за рахунок компанії.</p>
             </div>
         </div>
 
         <div class="center-btn fade-in">
-            <a href="second.html" class="btn">Далі →</a>
+            <a href="second.html" class="btn" data-uk="Далі →" data-en="Next →">Далі →</a>
         </div>
     </div>
 
     <script>
+        // Fade-in observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Language switcher
+        function setLang(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.toLowerCase().includes(lang === 'uk' ? 'укр' : 'eng'));
+            });
+
+            // Update all translated elements
+            document.querySelectorAll('[data-uk]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+
+            // Save preference
+            localStorage.setItem('lang', lang);
+        }
+
+        // Load saved preference
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang && savedLang !== 'uk') setLang(savedLang);
     </script>
 
 </body>
